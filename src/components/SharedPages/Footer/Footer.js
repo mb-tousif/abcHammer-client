@@ -1,11 +1,11 @@
 import React from 'react';
-import ABCHammerLogo from '../../Assets/Images/logo.png';
+import ABCHammerLogo from '../../../Assets/Images/logo.png';
 import { BsFacebook } from "react-icons/bs";
 import { FcFactoryBreakdown } from "react-icons/fc";
 import { FaCcJcb, FaCcVisa, FaCcMastercard, FaCcPaypal, FaYoutube } from "react-icons/fa";
 const Footer = () => {
     return (
-        <footer class="footer footer-center p-10 bg-primary text-primary-content">
+        <footer class="footer footer-center p-10 bg-accent text-primary-focus">
             <div>
                 <img src={ABCHammerLogo}  width="50" height="40" viewBox="0 0 24 24" alt="Logo" />
                 <p class="font-bold">ABC Hammer Manufacturing Ltd. <br/>Providing reliable Hammer since 1990</p>
