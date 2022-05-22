@@ -7,6 +7,7 @@ import PurchasedMain from "../src/components/PurchasedPage/PurchasedMain";
 import NotFoundPage from './components/notFoundPage/NotFoundPage';
 import Footer from './components/SharedPages/Footer/Footer';
 import LogIn from './components/userAuthentication/LogIn';
+import SignUp from './components/userAuthentication/SignUp';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/blogs" element={<Blogs/>} />
         <Route path="/purchase" element={<PurchasedMain/>} />
         <Route path="/logIn" element={<LogIn/>} />
+        <Route path="/signUp" element={<SignUp/>} />
         <Route path="*" element={<NotFoundPage/>} />
       </Routes>
       <Footer/>
