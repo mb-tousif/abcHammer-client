@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import abcLogo from "../Assets/Images/logo.png";
+import abcLogo from "../../Assets/Images/logo.png";
+import { CgLogIn } from "react-icons/cg";
+// import { CgLogIn, CgLogOut } from "react-icons/cg";
+// import { auth } from '../../firebase.init';
+// import { signOut } from 'firebase/auth';
+// import { useAuthState } from "react-firebase-hooks/auth";
 
 const Header = () => {
+  // const [user] = useAuthState(auth);
+  // const handleSignOut = () => {
+  //   signOut(auth);
+  // };
+
     return (
     <div className="navbar bg-base-100">
      <div className="navbar-start">
@@ -14,6 +24,13 @@ const Header = () => {
        <li><Link to="/home">Home</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/purchase">Purchase</Link></li>
+        <li>
+          {/* {
+            user ? <button onClick={handleSignOut} className="btn btn-ghost"><CgLogOut className='w-10 h-8'/></button>:<Link to="/logIn"><CgLogIn className='w-10 h-8'/></Link>
+          } */}
+          <Link to="/logIn"><CgLogIn className='w-10 h-8'/></Link>
+        </li>
+        <li><Link to="/myPortfolio">My Portfolio</Link></li>
       </ul>
     </div>
     <div className='flex mx-auto my-auto mr-20'>
@@ -31,6 +48,8 @@ const Header = () => {
       <li><Link to="/home">Home</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/purchase">Purchase</Link></li>
+        <li><Link to="/myPortfolio">My Portfolio</Link></li>
+        <Link to="/logIn"><CgLogIn className='w-10 h-8 mt-2'/></Link>
     </ul>
   </div>
 </div>
