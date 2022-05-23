@@ -8,21 +8,41 @@ import NotFoundPage from './components/notFoundPage/NotFoundPage';
 import Footer from './components/SharedPages/Footer/Footer';
 import LogIn from './components/userAuthentication/LogIn';
 import SignUp from './components/userAuthentication/SignUp';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import RequireAuth from './components/userAuthentication/RequireAuth';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<HomeMain/>} />
+        <Route path="/" element={<HomeMain />} />
         <Route path="/home" element={<HomeMain />} />
-        <Route path="/blogs" element={<Blogs/>} />
-        <Route path="/purchase" element={<PurchasedMain/>} />
-        <Route path="/logIn" element={<LogIn/>} />
-        <Route path="/signUp" element={<SignUp/>} />
-        <Route path="*" element={<NotFoundPage/>} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route
+          path="/purchase"
+          element={
+            <RequireAuth>
+              <PurchasedMain />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard/>
+            </RequireAuth>
+          }
+        />
+        <Route path="/logIn" element={<LogIn />} />
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <Footer/>
+      <Footer />
+      <ToastContainer />
     </div>
   );
 }

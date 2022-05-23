@@ -1,7 +1,11 @@
 import React from 'react';
 import { RiMailSendFill } from "react-icons/ri";
+import { toast } from 'react-toastify';
 import location from '../../Assets/Images/Location.png'
 const ContactUs = () => {
+  const handleSendBtn = ()=>{
+    toast.success("Your feedback sent Successfully")
+  }
   return (
      <section className="text-secondary body-font relative" >
          <h1 className="md:text-3xl text-xl font-bold text-primary">Contact With Us</h1>
@@ -34,8 +38,8 @@ const ContactUs = () => {
         <label for="message" className="leading-7 text-sm text-primary">Type Your Message</label>
         <textarea id="message" name="message" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-primary py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
       </div>
-      <button className="text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg"><RiMailSendFill className='inline-block w-8 h-6'/> Send Us</button>
-      <p className="text-xs font-bold text-gray-500 mt-3">Thank you for supporting Us</p>
+      <button onClick={()=>handleSendBtn()} className="text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg"><RiMailSendFill className='inline-block w-8 h-6'/> Send Us</button>
+      <p className="text-xs font-bold text-gray-500 mt-3">Thank you for supporting us.</p>
     </div>
   </div>
   <div class="flex md:ml-auto md:mr-0 justify-center mb-4 items-center flex-shrink-0 space-x-4">

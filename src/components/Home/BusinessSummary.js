@@ -33,7 +33,7 @@ const BusinessSummary = () => {
                         </div>
                         <div class="stat-title font-bold">New Buyer</div>
                         <div class="stat-value">4,200</div>
-                        <div class="stat-desc">↗︎ 400 (22%)</div>
+                        <div class="stat-desc">↗︎30% increased</div>
                     </div>
                 </div>
                 <div class="stats m-3 shadow-2xl bg-neutral text-primary">

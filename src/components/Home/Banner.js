@@ -8,7 +8,7 @@ const Banner = () => {
           <div className="hero-content text-center text-neutral-content">
             <div className="max-w-md">
                 <h1 className="mb-5 md:text-5xl text-xl font-bold">Welcome to ABC Hammer <br /> Manufacturing Ltd</h1>
-                <p className="mb-5">ABC Hammer Manufacturing Ltd. is the leading manufacturer of the highest quality, non-marring, non-sparking, non-magnetic and non-corrosive striking tools. We have been a family owned company for over 50 years.</p>
+                <p className="mb-5">ABC Hammer Manufacturing Ltd. is the leading manufacturer of the highest quality, non-marring, non-sparking, non-magnetic and non-corrosive striking tools. We have been a family owned company for over 32 years.</p>
                 <button className="btn btn-primary">Get Purchased</button>
             </div>
           </div>

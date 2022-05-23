@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { auth } from '../../firebase.init';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import Loading from '../SharedPages/Loading/Loading';
 
 const LogIn = () => {
   const { register, handleSubmit, formState: { errors }} = useForm();
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+  let navigate = useNavigate();
+  const location = useLocation("/");
+  let from = location.state?.from?.pathname || "/";
+
+  if(loading || googleLoading){
+    return <Loading/>
+  }
+
+  if (error || googleError) {
+    return (
+      toast.error("Log In not Completed!")
+    );
+  }
+  
+  if (user || googleUser) {
+    toast.success("Log In Success!")
+    navigate(from, { replace: true });
+  }
+
   const onSubmit = (data) => {
+    signInWithEmailAndPassword(data.email, data.password);
     console.log(data)
   };
     return (
@@ -80,9 +108,7 @@ const LogIn = () => {
                   )}
                 </div>
                 <div className="form-control mt-6">
-                  <button type="submit" className="btn btn-primary">
-                    Log In
-                  </button>
+                  <input type="submit" value="Log In" className="btn btn-primary"/>
                 </div>
               </form>
               <div className="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
@@ -98,7 +124,7 @@ const LogIn = () => {
                 <div className="divider">OR</div>
               </div>
               <div className="">
-                <button className="btn btn-primary mb-4 w-full max-w-xs">
+                <button onClick={()=>signInWithGoogle()} className="btn btn-primary mb-4 w-full max-w-xs">
                   <FcGoogle className="md:w-12 md:h-8 w-8 h-8" />
                   Continue with Google
                 </button>

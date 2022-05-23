@@ -1,12 +1,37 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase.init';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
+import Loading from '../SharedPages/Loading/Loading';
+import { toast } from 'react-toastify';
+
 
 const SignUp = () => {
 const { register, handleSubmit, formState: { errors }} = useForm();
-  const onSubmit = (data) => {
-    console.log(data)
+const [createUserWithEmailAndPassword, user, loading, error] =
+  useCreateUserWithEmailAndPassword(auth);
+const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+const navigate = useNavigate();
+
+  if (error || googleError || updateError) {
+    return (
+      toast.error("Sign Up not Completed!")
+    );
+  }
+  if(loading || googleLoading || updating){
+    return <Loading/>
+  }
+
+   if (user || googleUser) {
+     navigate('/');
+   }
+
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
   };
 
     return (
@@ -98,9 +123,7 @@ const { register, handleSubmit, formState: { errors }} = useForm();
                   )}
                 </div>
                 <div className="form-control mt-6">
-                  <button type="submit" className="btn btn-primary">
-                    Sign Up
-                  </button>
+                  <input type="submit" value="Sign Up" className="btn btn-primary"/>
                 </div>
               </form>
               <div className="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
@@ -116,7 +139,7 @@ const { register, handleSubmit, formState: { errors }} = useForm();
                 <div className="divider">OR</div>
               </div>
               <div className="">
-                <button className="btn btn-primary mb-4 w-full max-w-xs">
+                <button onClick={()=>signInWithGoogle()} className="btn btn-primary mb-4 w-full max-w-xs">
                   <FcGoogle className="md:w-12 md:h-8 w-8 h-8" />
                   Continue with Google
                 </button>
