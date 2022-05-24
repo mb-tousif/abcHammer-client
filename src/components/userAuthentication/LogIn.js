@@ -23,7 +23,8 @@ const LogIn = () => {
 
   if (error || googleError) {
     return (
-      toast.error("Log In not Completed!")
+      [toast.error("User not found, please Sign up"),
+      navigate('/signUp')]
     );
   }
   

@@ -10,17 +10,12 @@ import { toast } from 'react-toastify';
 
 const SignUp = () => {
 const { register, handleSubmit, formState: { errors }} = useForm();
-const [createUserWithEmailAndPassword, user, loading, error] =
+const [createUserWithEmailAndPassword, user, loading] =
   useCreateUserWithEmailAndPassword(auth);
-const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
+const [updateProfile, updating] = useUpdateProfile(auth);
 const navigate = useNavigate();
 
-  if (error || googleError || updateError) {
-    return (
-      toast.error("Sign Up not Completed!")
-    );
-  }
   if(loading || googleLoading || updating){
     return <Loading/>
   }
@@ -30,6 +25,21 @@ const navigate = useNavigate();
    }
 
   const onSubmit = async (data) => {
+    const url = "http://localhost:4000/users";
+    fetch(url, {
+      method: "POST",
+      headers: {"content-type":"application/json"},
+      body: JSON.stringify(data),
+    })
+    .then(res=>res.json())
+    .then(user=>{
+      console.log(user);
+      if(user.success){
+        toast.success("User Added!!")
+      }else{
+        toast.error('User already signed up')
+      }
+    })
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
   };
@@ -62,7 +72,36 @@ const navigate = useNavigate();
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text text-primary">Address</span>
+                  </label>
+                  <input
+                    type="text"
+                    {...register("address", { required: true })}
+                    name="address"
+                    placeholder="Type your Address"
+                    className="input input-bordered"
+                  />
+                  {errors.address && (
+                    <p className="text-red-600">
+                      <small>Address is required.</small>
+                    </p>
+                  )}
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text text-primary">Highest Education Level</span>
+                  </label>
+                  <input
+                    type="text"
+                    {...register("education")}
+                    name="education"
+                    placeholder="Type your Highest Education"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text text-primary">Email</span>
                   </label>
                   <input
                     type="email"
@@ -93,7 +132,7 @@ const navigate = useNavigate();
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Password</span>
+                    <span className="label-text text-primary">Password</span>
                   </label>
                   <input
                     type="password"

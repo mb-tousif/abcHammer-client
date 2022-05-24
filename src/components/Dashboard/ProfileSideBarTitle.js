@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { BiUserCircle } from "react-icons/bi";
 const ProfileSideBarTitle = () => {
      const [currentUsers, setCurrentUsers] = useState([]);
      useEffect(() => {
@@ -13,11 +13,13 @@ const ProfileSideBarTitle = () => {
       <div>
         {currentUsers.map((currentUser) => (
           <div class="flex flex-col items-center mt-6 -mx-2">
-            <img
+            {
+              currentUser.img ? <img
               class="object-cover w-24 h-24 mx-2 rounded-full"
               src={currentUser.img}
               alt="avatar"
-            />
+            /> : <BiUserCircle class="object-cover w-24 h-24 mx-2 rounded-full"/>
+            }
             <h4 class="mx-2 mt-2 font-medium text-gray-800 dark:text-gray-200 hover:underline">
               {currentUser.name}
             </h4>
