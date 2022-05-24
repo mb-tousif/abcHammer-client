@@ -37,11 +37,11 @@ const Header = () => {
       <img className="mx-auto my-auto" src={abcLogo} width="50" height="50" alt="Logo" />
       <h2 className='md:p-2 ml-2 md:text-xl font-bold'>ABC Hammer Manufacturing Ltd</h2>
     </div>
-    {/* <div className="navbar-end">
+    <div className="navbar-end">
       <label tabIndex="1" htmlFor="dashboardSideBar" className="btn btn-ghost drawer-button lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </label>
-    </div> */}
+    </div>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
