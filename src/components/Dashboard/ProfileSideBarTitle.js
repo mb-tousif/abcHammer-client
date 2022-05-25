@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { BiUserCircle } from "react-icons/bi";
+import { useParams } from 'react-router-dom';
+import Loading from '../SharedPages/Loading/Loading';
 const ProfileSideBarTitle = () => {
-     const [currentUsers, setCurrentUsers] = useState([]);
+    const{id}=useParams();
+     const [currentUser, setCurrentUser] = useState([]);
      useEffect(() => {
-       const url = "http://localhost:4000/users";
+       const url = `http://localhost:4000/users/${id}`;
        fetch(url)
          .then((res) => res.json())
-         .then((data) => setCurrentUsers(data));
+         .then((data) => {
+           <Loading/>
+           setCurrentUser(data);
+         });
      }, []);
-    console.log(currentUsers);
+    console.log(currentUser);
     return (
       <div>
-        {currentUsers.map((currentUser) => (
           <div class="flex flex-col items-center mt-6 -mx-2">
             {
               currentUser.img ? <img
@@ -27,7 +32,7 @@ const ProfileSideBarTitle = () => {
               {currentUser?.email ? currentUser.email : "abc@hammer.com"}
             </p>
           </div>
-        ))}
+
       </div>
     );
 };

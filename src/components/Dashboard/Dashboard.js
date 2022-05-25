@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import ProfileSideBarTitle from './ProfileSideBarTitle';
-
 
 const Dashboard = () => {
     return (
@@ -18,8 +16,8 @@ const Dashboard = () => {
             <label htmlFor="dashboardSideBar" class="drawer-overlay"></label>
             <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
               <li>
-                <Link to="/dashboard">
-                  <ProfileSideBarTitle />
+                <Link to="/dashboard" class="mx-4 font-medium">
+                  My Profile
                 </Link>
               </li>
               <li>
