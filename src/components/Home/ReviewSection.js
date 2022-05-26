@@ -1,15 +1,18 @@
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../SharedPages/Loading/Loading';
 import Review from './Review';
 
 const ReviewSection = () => {
+  const navigate = useNavigate();
   const url = "http://localhost:4000/reviews";
-  const { isLoading, data: reviews, error } = useQuery('reviews', 
+  const { isLoading, data: reviews } = useQuery('reviews', 
   ()=>fetch(url).then(res=>res.json()))
   
   if(isLoading){
     return <Loading/>
   }
+
     return (
       <section className="bg-base-100 body-font">
         <div className="container px-5 py-24 mx-auto">
@@ -21,7 +24,7 @@ const ReviewSection = () => {
               reviews?.map(review=><Review review={review} key={review._id}/>)
             }
           </div>
-          <button className="btn btn-wide btn-primary mt-10">Add your Experience</button>
+          <button onClick={()=> navigate("/dashboard/addReview")} className="btn btn-wide btn-primary mt-10">Add your Experience</button>
         </div>
       </section>
     );

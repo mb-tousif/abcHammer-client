@@ -13,7 +13,7 @@ const ProfileSideBarTitle = () => {
            <Loading/>
            setCurrentUser(data);
          });
-     }, []);
+     }, [currentUser]);
     console.log(currentUser);
     return (
       <div>

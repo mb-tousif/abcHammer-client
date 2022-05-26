@@ -2,7 +2,8 @@ import React from 'react';
 import ABCHammerLogo from '../../../Assets/Images/logo.png';
 import { BsFacebook } from "react-icons/bs";
 import { FcFactoryBreakdown } from "react-icons/fc";
-import { FaCcJcb, FaCcVisa, FaCcMastercard, FaCcPaypal, FaYoutube } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { GrLinkedinOption } from "react-icons/gr";
 const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-accent text-primary-focus">
@@ -13,13 +14,10 @@ const Footer = () => {
             </div> 
             <div>
                 <div className="grid grid-flow-col md:gap-4">
-                <span><BsFacebook className='w-12 h-8'/></span>
-                <span><FaYoutube className='w-12 h-8'/></span>
-                <span><FcFactoryBreakdown className='w-12 h-8'/></span>
-                <span><FaCcJcb className='w-12 h-8'/></span>
-                <span><FaCcVisa className='w-12 h-8'/></span>
-                <span><FaCcMastercard className='w-12 h-8'/></span>
-                <span><FaCcPaypal className='w-12 h-8'/></span>
+                <span><a href="https://www.facebook.com/azizul.tousif"><BsFacebook className='w-12 h-8'/></a></span>
+                <span><a href="https://www.youtube.com/c/JhankarMahbub"><FaYoutube className='w-12 h-8'/></a></span>
+                <span><a href='https://www.abchammers.com/'><FcFactoryBreakdown className='w-12 h-8'/></a></span>
+                <span><a href="https://www.linkedin.com/in/azizul-haque-tousif/"><GrLinkedinOption className='w-12 h-8'/></a></span>
                 </div>
             </div>
         </footer>

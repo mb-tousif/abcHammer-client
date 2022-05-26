@@ -6,6 +6,7 @@ import { auth } from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import Loading from '../SharedPages/Loading/Loading';
 import { toast } from 'react-toastify';
+import useToken from '../../Hooks/useToken';
 
 
 const SignUp = () => {
@@ -19,10 +20,11 @@ const navigate = useNavigate();
   if(loading || googleLoading || updating){
     return <Loading/>
   }
-
+  
    if (user || googleUser) {
      navigate('/');
    }
+
 
   const onSubmit = async (data) => {
     const url = "http://localhost:4000/users";
