@@ -4,7 +4,7 @@ import Loading from '../SharedPages/Loading/Loading';
 import UserRow from './UserRow';
 
 const MakeAdmin = () => {
-  const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:4000/users', {
+  const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:4000/user', {
     method: 'GET',
     headers:{
       authorization: `secretToken ${localStorage.getItem('accessToken')}`
