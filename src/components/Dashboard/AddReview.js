@@ -11,7 +11,7 @@ const AddReview = () => {
         // const address = e.target.address.value;
         // const newReview = {  comment, img, address };
         console.log( data);
-      const url = "http://localhost:4000/reviews";
+      const url = "https://sheltered-headland-89528.herokuapp.com/reviews";
       fetch(url, {
         method: "POST",
         headers: { "content-type": "application/json" },

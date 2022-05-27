@@ -12,7 +12,7 @@ const MyOrder = () => {
     
     useEffect(()=>{
       if(user){
-        fetch(`http://localhost:4000/orders?buyer=${user.email}`, {
+        fetch(`https://sheltered-headland-89528.herokuapp.com/orders?buyer=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `secretToken ${localStorage.getItem('accessToken')}`

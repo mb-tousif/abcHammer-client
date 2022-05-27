@@ -12,7 +12,7 @@ const PurchaseItem = () => {
   const [purchasedProduct, setPurchasedProduct] = useState({});
   const navigate = useNavigate();
   useEffect(() => {
-    const url = `http://localhost:4000/products/${id}`;
+    const url = `https://sheltered-headland-89528.herokuapp.com/products/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPurchasedProduct(data));
@@ -34,7 +34,7 @@ const PurchaseItem = () => {
         phone: data.phone,
         totalPrice : price,
       };
-     fetch("http://localhost:4000/orders", {
+     fetch("https://sheltered-headland-89528.herokuapp.com/orders", {
        method: "POST",
        headers: {
          "content-type": "application/json",

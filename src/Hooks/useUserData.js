@@ -4,7 +4,7 @@ const useUserData = () => {
     const [users, setUsers] = useState([]);
     // const [userLoading, setUserLoading] = useState([true]);
     useEffect(() => {
-      const url = "http://localhost:4000/users";
+      const url = "https://sheltered-headland-89528.herokuapp.com/users";
         fetch(url)
         .then((res) => res.json())
         .then((data) =>setUsers(data));

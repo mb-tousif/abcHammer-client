@@ -6,7 +6,7 @@ const ProfileSideBarTitle = () => {
     const{id}=useParams();
      const [currentUser, setCurrentUser] = useState([]);
      useEffect(() => {
-       const url = `http://localhost:4000/user/${id}`;
+       const url = `https://sheltered-headland-89528.herokuapp.com/user/${id}`;
        fetch(url)
          .then((res) => res.json())
          .then((data) => {

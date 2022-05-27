@@ -5,7 +5,7 @@ import Review from './Review';
 
 const ReviewSection = () => {
   const navigate = useNavigate();
-  const url = "http://localhost:4000/reviews";
+  const url = "https://sheltered-headland-89528.herokuapp.com/reviews";
   const { isLoading, data: reviews } = useQuery('reviews', 
   ()=>fetch(url).then(res=>res.json()))
   

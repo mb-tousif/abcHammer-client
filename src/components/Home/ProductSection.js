@@ -5,7 +5,7 @@ import { RiUserVoiceFill } from "react-icons/ri";
 import Products from './Products';
 
 const ProductSection = () => {
-    const url = "http://localhost:4000/products";
+    const url = "https://sheltered-headland-89528.herokuapp.com/products";
     const { isLoading, data: products } = useQuery('Products', ()=>fetch(url).then((res)=>res.json()));
 
     if (isLoading) {
