@@ -17,6 +17,10 @@ import AddReview from './components/Dashboard/AddReview';
 import PurchaseHome from './components/PurchasedPage/PurchaseHome';
 import PurchaseItem from './components/PurchasedPage/PurchaseItem';
 import MyPortFolioMain from './components/MyPortFolio/MyPortFolioMain';
+import ManageOrder from './components/Dashboard/ManageOrder';
+import AddProduct from './components/Dashboard/AddProduct';
+import ManageProducts from './components/Dashboard/ManageProducts';
+import MakeAdmin from './components/Dashboard/MakeAdmin';
 
 function App() {
   return (
@@ -36,6 +40,11 @@ function App() {
           <Route index element={<MyProfile />} />
           <Route path="addReview" element={<AddReview />} />
           <Route path="myOrder" element={<MyOrder />} />
+          <Route path="manageOrder" element={<ManageOrder/>} />
+          <Route path="addProduct" element={<AddProduct/>} />
+          <Route path="manageProduct" element={<ManageProducts/>} />
+          <Route path="manageProduct" element={<ManageProducts/>} />
+          <Route path="makeAdmin" element={<MakeAdmin/>} />
         </Route>
         <Route path="/logIn" element={<LogIn />} />
         <Route path="/signUp" element={<SignUp />} />

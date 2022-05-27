@@ -6,14 +6,14 @@ const ProfileSideBarTitle = () => {
     const{id}=useParams();
      const [currentUser, setCurrentUser] = useState([]);
      useEffect(() => {
-       const url = `http://localhost:4000/users/${id}`;
+       const url = `http://localhost:4000/user/${id}`;
        fetch(url)
          .then((res) => res.json())
          .then((data) => {
            <Loading/>
            setCurrentUser(data);
          });
-     }, [currentUser]);
+     }, [id]);
     console.log(currentUser);
     return (
       <div>

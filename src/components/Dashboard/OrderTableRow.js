@@ -11,7 +11,7 @@ const OrderTableRow = ({order, index}) => {
             <td>{quantity}</td>
             <td>{totalPrice}</td>
             <td>
-              <div class="tooltip hover:tooltip-open tooltip-bottom" data-tip="Payment">
+              <div class="tooltip hover:tooltip-open tooltip-left" data-tip="Payment">
                 <button class="btn mr-2 btn-sm">
                   <FcMoneyTransfer className='w-6 h-6' />
                 </button>

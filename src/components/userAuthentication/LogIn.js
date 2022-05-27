@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -6,6 +6,7 @@ import { auth } from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import Loading from '../SharedPages/Loading/Loading';
+import useToken from '../../Hooks/useToken';
 
 const LogIn = () => {
   const { register, handleSubmit, formState: { errors }} = useForm();
@@ -13,10 +14,18 @@ const LogIn = () => {
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+  const [token] = useToken(user || googleUser);
   let navigate = useNavigate();
-  const location = useLocation("/");
+  const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
+  useEffect(() => {
+    if (token) {
+      toast.success("Log In Success!");
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
+  
   if(loading || googleLoading){
     return <Loading/>
   }
@@ -28,10 +37,6 @@ const LogIn = () => {
     );
   }
   
-  if (user || googleUser) {
-    toast.success("Log In Success!")
-    navigate(from, { replace: true });
-  }
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);

@@ -10,6 +10,7 @@ const Header = () => {
   const [user] = useAuthState(auth);
   const handleSignOut = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
   };
 
     return (
@@ -29,7 +30,7 @@ const Header = () => {
           {
             user ? <button onClick={handleSignOut} className="btn btn-ghost"><CgLogOut className='w-10 h-8'/></button>:<Link to="/logIn"><CgLogIn className='w-10 mt-1 h-8'/></Link>
           }
-          {/* <Link to="/logIn"><CgLogIn className='w-10 h-8'/></Link> */}
+          {user && <Link to="/myPortfolio">{user?.displayName}</Link>}
         </li>
       </ul>
     </div>
@@ -52,7 +53,7 @@ const Header = () => {
         <li><Link to="/purchase">Purchase</Link></li>
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/myPortfolio">My Portfolio</Link></li>
-        {/* <Link to="/logIn"><CgLogIn className='w-10 h-8 mt-2'/></Link> */}
+        {user && <Link to=""><small className='text-center'>{user?.displayName}</small></Link>}
         {
           user ? <button onClick={handleSignOut} className="btn btn-ghost"><CgLogOut className='w-10 h-8'/></button>:<Link to="/logIn"><CgLogIn className='w-10 mt-1 h-8'/></Link>
         }

@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 const useToken = (user) => {
   const [token, setToken] = useState("");
   useEffect(() => {
+    console.log("User inside token",user);
     const email = user?.user?.email;
     const currentUser = { email: email };
     if (email) {
-      fetch(`http://localhost:5000/users/${email}`, {
+      fetch(`http://localhost:4000/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -15,8 +16,8 @@ const useToken = (user) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("data inside useToken", data);
           const accessToken = data.token;
+          // console.log(accessToken);
           localStorage.setItem("accessToken", accessToken);
           setToken(accessToken);
         });

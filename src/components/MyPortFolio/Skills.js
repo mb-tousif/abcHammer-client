@@ -32,6 +32,10 @@ const Skills = () => {
             <label htmlFor="css" className="text-primary mr-7">Firebase</label>
             <progress name='css' class="progress progress-success w-56 h-5 bg-slate-600" value="75" max="100"></progress>
             </div> 
+            <div className="flex justify-center items-center">
+            <label htmlFor="css" className="text-primary mr-7">MongoDB</label>
+            <progress name='css' class="progress progress-success w-56 h-5 bg-slate-600" value="60" max="100"></progress>
+            </div> 
         </div>
     );
 };
