@@ -21,14 +21,18 @@ const Dashboard = () => {
             <label htmlFor="dashboardSideBar" class="drawer-overlay"></label>
             <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
               <li><Link to="/dashboard" class="mx-4 font-medium">My Profile</Link></li>
-              <li><Link to="/dashboard/myOrder" class="mx-4 font-medium">My Order</Link></li>
-              <li><Link to="/dashboard/addReview" class="mx-4 font-medium">Review us</Link></li>
-              { admin &&
+              {
+                admin ? 
                 <>
                 <li><Link to="/dashboard/manageOrder" class="mx-4 font-medium">Manage Order</Link></li>
                 <li><Link to="/dashboard/addProduct" class="mx-4 font-medium">Add Products</Link></li>
                 <li><Link to="/dashboard/manageProduct" class="mx-4 font-medium">Manage Product</Link></li>
                 <li><Link to="/dashboard/makeAdmin" class="mx-4 font-medium">Make Admin</Link></li>
+                </> 
+                :
+                <>
+                <li><Link to="/dashboard/myOrder" class="mx-4 font-medium">My Order</Link></li>
+                <li><Link to="/dashboard/addReview" class="mx-4 font-medium">Review us</Link></li>
                 </>
               }
             </ul>
