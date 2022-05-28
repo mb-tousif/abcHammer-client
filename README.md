@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App]([(https://abchammer-9adb4.web.app/)]).
+This project was bootstrapped with [Create React App](https://abchammer-9adb4.web.app/).
 
 ## Available Scripts
 
