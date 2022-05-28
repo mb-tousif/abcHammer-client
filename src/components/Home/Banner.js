@@ -11,11 +11,10 @@ const Banner = () => {
             <div className="max-w-md">
                 <h1 className="mb-5 md:text-5xl text-xl font-bold">Welcome to ABC Hammer <br /> Manufacturing Ltd</h1>
                 <p className="mb-5">ABC Hammer Manufacturing Ltd. is the leading manufacturer of the highest quality, non-marring, non-sparking, non-magnetic and non-corrosive striking tools. We have been a family owned company for over 32 years.</p>
-                <button onClick={()=>navigate('/purchase')} className="btn btn-primary">Get Purchased</button>
+                <button data-aos="fade-up" data-aos-anchor-placement="bottom-center" data-aos-easing="ease-in-sine" onClick={()=>navigate('/purchase')} className="btn btn-primary">Get Purchased</button>
             </div>
           </div>
         </div>
     );
 };
-
 export default Banner;

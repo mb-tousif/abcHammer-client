@@ -11,7 +11,7 @@ const Products = ({product}) => {
     }
 
     return (   
-    <div className="max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+    <div className="max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800" data-aos="zoom-out">
         <div className="px-4 py-2 md:w-full">
           <h1 className="md:text-2xl text-xl md:font-bold text-primary">{name}</h1>
             <p className="mt-1 text-sm h-44 mx-auto my-auto text-gray-600 dark:text-gray-400">{description}</p>

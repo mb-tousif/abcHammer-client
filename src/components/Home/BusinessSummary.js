@@ -8,7 +8,7 @@ const BusinessSummary = () => {
         <div>
             <h1 className="md:text-3xl mb-4 text-xl font-bold text-primary">ABC Hammer Manufacturing Ltd <br /> Business Summary</h1>
             <div className="grid grid-cols-1 w-full md:grid-cols-2 gap-8">
-                <div class="stats m-3 shadow-2xl bg-neutral text-primary">
+                <div class="stats m-3 shadow-2xl bg-neutral text-primary" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                     <div class="stat w-5/6 mx-auto my-auto">
                         <div class="stat-figure text-secondary">
                         <RiUserSearchLine className='w-12 h-10'/></div>
@@ -17,7 +17,7 @@ const BusinessSummary = () => {
                         <div class="stat-desc">21% more than last year</div>
                     </div>
                 </div>
-                <div class="stats m-3 shadow-2xl bg-neutral">
+                <div class="stats m-3 shadow-2xl bg-neutral" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
                     <div class="stat text-secondary w-5/6 mx-auto my-auto">
                         <div class="stat-figure text-secondary">
                         <GiMoneyStack className='w-12 h-10'/>
@@ -26,7 +26,7 @@ const BusinessSummary = () => {
                         <div class="stat-value">&#36;100 M</div>
                     </div>
                 </div>
-                <div class="stats m-3 shadow-2xl bg-neutral text-secondary">
+                <div class="stats m-3 shadow-2xl bg-neutral text-secondary" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1500">
                     <div class="stat w-5/6 mx-auto my-auto">
                         <div class="stat-figure text-secondary">
                         <FaUserCog className='w-12 h-10'/>
@@ -36,7 +36,7 @@ const BusinessSummary = () => {
                         <div class="stat-desc">↗︎30% increased</div>
                     </div>
                 </div>
-                <div class="stats m-3 shadow-2xl bg-neutral text-primary">
+                <div class="stats m-3 shadow-2xl bg-neutral text-primary" data-aos="zoom-out-right">
                     <div class="stat w-5/6 mx-auto my-auto">
                         <div class="stat-figure text-secondary">
                         <FaChartLine className='w-12 h-10'/>

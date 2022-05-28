@@ -7,7 +7,7 @@ import { GrLinkedinOption } from "react-icons/gr";
 const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-accent text-primary-focus">
-            <div>
+            <div data-aos="flip-up">
                 <img src={ABCHammerLogo}  width="50" height="40" viewBox="0 0 24 24" alt="Logo" />
                 <p className="font-bold">ABC Hammer Manufacturing Ltd. <br/>Providing reliable Hammer since 1990</p>
                 <p>Copyright &#169; {new Date().getFullYear()} - All right reserved.</p>

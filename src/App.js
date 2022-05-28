@@ -21,6 +21,8 @@ import ManageOrder from './components/Dashboard/ManageOrder';
 import AddProduct from './components/Dashboard/AddProduct';
 import ManageProducts from './components/Dashboard/ManageProducts';
 import MakeAdmin from './components/Dashboard/MakeAdmin';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   return (
@@ -56,5 +58,6 @@ function App() {
     </div>
   );
 }
+AOS.init();
 
 export default App;
